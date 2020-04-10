@@ -16,11 +16,11 @@ CREATE SCHEMA IF NOT EXISTS `eventtracker` DEFAULT CHARACTER SET utf8 ;
 USE `eventtracker` ;
 
 -- -----------------------------------------------------
--- Table `table1`
+-- Table `event`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `table1` ;
+DROP TABLE IF EXISTS `event` ;
 
-CREATE TABLE IF NOT EXISTS `table1` (
+CREATE TABLE IF NOT EXISTS `event` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NOT NULL,
   PRIMARY KEY (`id`))
@@ -38,11 +38,11 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `table1`
+-- Data for table `event`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `eventtracker`;
-INSERT INTO `table1` (`id`, `name`) VALUES (1, 'Photo');
+INSERT INTO `event` (`id`, `name`) VALUES (1, 'Photo');
 
 COMMIT;
 

@@ -6,13 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Events {
+public class Event {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 
-	public Events() {
+	public Event() {
 	}
 
 	public int getId() {
@@ -58,7 +58,7 @@ public class Events {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Events other = (Events) obj;
+		Event other = (Event) obj;
 		if (id != other.id)
 			return false;
 		return true;
