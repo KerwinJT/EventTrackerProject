@@ -9,7 +9,7 @@
     </provider>
     
     <!-- Entities -->
-	<class>com.skilldistillery.event.entities.Events</class> <!-- Photos? Maybe? -->
+	<class>com.skilldistillery.event.entities.Photoshoot</class> <!-- Photos? Maybe? -->
 	
 	<!-- End Entities -->
 
