@@ -13,5 +13,5 @@ public interface PhotoshootRepository extends JpaRepository<Photoshoot, Integer>
 	List<Photoshoot> findByLocationContaining(String keyword);
 	List<Photoshoot> findByNameContaining(String keyword);
 	List<Photoshoot> findByCommentLocationContainingOrCommentPerformanceContaining(String keyword, String keyword2);
-	List<Photoshoot> findByLensesUsed(String keyword);
+	List<Photoshoot> findByLensesUsedContaining(String keyword);
 }

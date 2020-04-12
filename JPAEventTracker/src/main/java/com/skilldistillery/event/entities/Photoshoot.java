@@ -17,12 +17,14 @@ public class Photoshoot {
 	
 	private String location;
 	private LocalDate date;
-	private double latitude;
-	private double longitude;
+	private Double latitude;
+	private Double longitude;
 	
 	@Column(name = "shots_taken")
-	private int shotsTaken;
+	private Integer shotsTaken;
 	
+	
+
 	@Column(name = "comment_location")
 	private String commentLocation;
 
@@ -35,85 +37,127 @@ public class Photoshoot {
 	public Photoshoot() {
 	}
 
+	
+
 	public int getId() {
 		return id;
 	}
+
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+
+
 	public String getName() {
 		return name;
 	}
+
+
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+
+
 	public String getLocation() {
 		return location;
 	}
+
+
 
 	public void setLocation(String location) {
 		this.location = location;
 	}
 
+
+
 	public LocalDate getDate() {
 		return date;
 	}
+
+
 
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
-	public double getLatitude() {
+
+
+	public Double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(double latitude) {
+
+
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 
-	public double getLongitude() {
+
+
+	public Double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(double longitude) {
+
+
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 
-	public int getShotsTaken() {
+
+
+	public Integer getShotsTaken() {
 		return shotsTaken;
 	}
 
-	public void setShotsTaken(int shotsTaken) {
+
+
+	public void setShotsTaken(Integer shotsTaken) {
 		this.shotsTaken = shotsTaken;
 	}
+
+
 
 	public String getCommentLocation() {
 		return commentLocation;
 	}
 
+
+
 	public void setCommentLocation(String commentLocation) {
 		this.commentLocation = commentLocation;
 	}
+
+
 
 	public String getCommentPerformance() {
 		return commentPerformance;
 	}
 
+
+
 	public void setCommentPerformance(String commentPerformance) {
 		this.commentPerformance = commentPerformance;
 	}
+
+
 
 	public String getLensesUsed() {
 		return lensesUsed;
 	}
 
+
+
 	public void setLensesUsed(String lensesUsed) {
 		this.lensesUsed = lensesUsed;
 	}
+
+
 
 	@Override
 	public String toString() {
