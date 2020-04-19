@@ -6,16 +6,40 @@
 		<script src="js/script.js"></script>
 		
 	</head>
-<body>
-	<h1>Welcome to your photoshoot tracker</h1>
-	<form action="search">
-		<input type="text" name="id" id="id">
-		<input type="button" value="Search ID">
-	</form>
-	<!-- TODO: Search field and buttons -->
-	<!-- TODO: Event details -->
-	<!-- TODO: List all events when the page loads? -->
-	<!-- TODO: new event form -->
-	<!-- TODO: Edit event form -->
-</body>
+	<body>
+		<h1>Welcome to your photoshoot tracker</h1>
+		<form name='search'>
+			<input type="text" name="id" id="id">
+			<button name="submit">Search by ID</button>
+		</form>
+		<form name='keyword'>
+			<input type='text' name='keyword' id='keyword'/>
+			<button name='submit'>Comments by Keyword</button>
+		</form>
+		<form name='lens'>
+			<input type='text' name='keyword' id='keyword'/>
+			<button name='submit'>Lenses by Keyword</button>
+		</form>
+		<form name='locations'>
+			<input type='text' name='keyword' id='keyword'/>
+			<button name='submit'>Locations by Keyword</button>
+		</form>
+		<form name='name'>
+			<input type='text' name='keyword' id='keyword'/>
+			<button name='submit'>Photoshoot by Name</button>
+		</form>
+		<div id='createEvent'>
+			<form name='create'>
+				<button name='create'>Create New Event</button>
+			</form>
+		</div>
+		<div id='searchResults'></div>
+		
+
+		<!-- TODO: Search field and buttons -->
+		<!-- TODO: Event details -->
+		<!-- TODO: List all events when the page loads? -->
+		<!-- TODO: new event form -->
+		<!-- TODO: Edit event form -->
+	</body>
 </html>
