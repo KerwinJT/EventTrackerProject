@@ -5,6 +5,9 @@
 ### Overview
 This application focuses on developing RESTful API endpoints. It has a simple database that allows a user to track Photoshoots and to provide comments. From this, the user will be able to understand how their shoot went and to use these lessons in future shoots. As the user develops a larger record of their events, they will be able to query the database and search by name, keyword, location, and comments.
 
+### Frontend
+The frontend of this project provides a dynamically updating webpage that full CRUD functionality built in. As the user navigates through search results, the user can choose to delete the postings or update them. When updating, the forms will auto populate to ensure minimal loss of information. 
+
 #### Table of REST Endpoints
 - Get - api/photoshoots/index - Display all records
 - Get - api/photoshoots/{id} - Find record by ID
