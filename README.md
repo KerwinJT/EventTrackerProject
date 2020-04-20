@@ -1,6 +1,6 @@
 ## Event Tracker Project
 
-#### Week 12 Homework for Skill Distillery
+#### Week 12 & 13 Homework for Skill Distillery
 
 ### Overview
 This application focuses on developing RESTful API endpoints. It has a simple database that allows a user to track Photoshoots and to provide comments. From this, the user will be able to understand how their shoot went and to use these lessons in future shoots. As the user develops a larger record of their events, they will be able to query the database and search by name, keyword, location, and comments.
@@ -23,4 +23,4 @@ To use, the user can use PostMan to query the system using the provided REST End
 Eclipse - Atom - MySQL WorkBench - AWS - EC2 - Git - GitHub
 
 ### Lessons Learned
-From this project, I learned to make RESTful endpoints specific and recognizable. Having these endpoints organized by a common pattern made testing these endpoints through postmant easy. 
+From this project, I learned to make RESTful endpoints specific and recognizable. Having these endpoints organized by a common pattern made testing these endpoints through postman easy.
