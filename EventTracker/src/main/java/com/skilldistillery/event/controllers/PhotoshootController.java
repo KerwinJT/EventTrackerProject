@@ -95,6 +95,9 @@ public class PhotoshootController {
 		try {
 			List<Photoshoot> psList = photoService.findByLenses(keyword);
 			response.setStatus(200);
+			if(psList == null) {
+				throw new Exception();
+			}
 			return psList;
 		} catch (Exception e) {
 			response.setStatus(404);
@@ -108,6 +111,9 @@ public class PhotoshootController {
 		try {
 			List<Photoshoot> psList = photoService.findByNameByKeyword(keyword);
 			response.setStatus(200);
+			if(psList == null) {
+				throw new Exception();
+			}
 			return psList;
 		} catch (Exception e) {
 			response.setStatus(404);
@@ -121,6 +127,9 @@ public class PhotoshootController {
 		try {
 			List<Photoshoot> psList = photoService.findByLocationKeyword(keyword);
 			response.setStatus(200);
+			if(psList == null) {
+				throw new Exception();
+			}
 			return psList;
 		} catch (Exception e) {
 			response.setStatus(404);
@@ -133,6 +142,9 @@ public class PhotoshootController {
 	public List<Photoshoot> findByComments(@PathVariable String keyword, HttpServletResponse response) {
 		try {
 			List<Photoshoot> psList = photoService.findByCommentsKeyword(keyword);
+			if(psList == null) {
+				throw new Exception();
+			}
 			response.setStatus(200);
 			return psList;
 		} catch (Exception e) {

@@ -35,14 +35,20 @@ public class PhotoshootServiceImpl implements PhotoshootService {
 	public Photoshoot updateById(Integer id, Photoshoot unmanaged) {
 		Photoshoot managed = findById(id);
 		if (managed != null && unmanaged != null) {
-			if (unmanaged.getName() != null) {
+			if (unmanaged.getName() != null && unmanaged.getName().length() > 0) {
 				managed.setName(unmanaged.getName());
+			} else {
+				managed.setName("Unspecified Name");
 			}
-			if (unmanaged.getLocation() != null) {
+			if (unmanaged.getLocation() != null && unmanaged.getLocation().length() > 0) {
 				managed.setLocation(unmanaged.getLocation());
+			} else { 
+				managed.setLocation("Unspecified Location");
 			}
 			if (unmanaged.getDate() != null) {
 				managed.setDate(unmanaged.getDate());
+			} else {
+				managed.setDate(LocalDate.parse("1970-01-01"));
 			}
 			if (unmanaged.getLatitude() != null) {
 				managed.setLatitude(unmanaged.getLatitude());
@@ -81,11 +87,11 @@ public class PhotoshootServiceImpl implements PhotoshootService {
 	public Photoshoot createNewPhotoshoot(Photoshoot unmanaged) {
 		Photoshoot toSave = null;
 		if (unmanaged != null) {
-			if (unmanaged.getName() == null) {
+			if (unmanaged.getName() == null || unmanaged.getName().trim().length() == 0) {
 				unmanaged.setName("Unspecified Name");
 			}
-			if (unmanaged.getLocation() == null) {
-				unmanaged.setLocation("Location was no specified");
+			if (unmanaged.getLocation() == null || unmanaged.getLocation().trim().length() == 0) {
+				unmanaged.setLocation("Location was not specified");
 			}
 			if (unmanaged.getDate() == null) {
 				unmanaged.setDate(LocalDate.now());
@@ -100,7 +106,9 @@ public class PhotoshootServiceImpl implements PhotoshootService {
 	public List<Photoshoot> findByLenses(String keyword) {
 		if (keyword != null) {
 			List<Photoshoot> photoshoots = repo.findByLensesUsedContaining(keyword);
-			return photoshoots;
+			if(photoshoots.size() > 0) {
+				return photoshoots;
+			}
 		}
 		return null;
 	}
@@ -109,7 +117,9 @@ public class PhotoshootServiceImpl implements PhotoshootService {
 	public List<Photoshoot> findByNameByKeyword(String keyword) {
 		if (keyword != null) {
 			List<Photoshoot> photoshoots = repo.findByNameContaining(keyword);
-			return photoshoots;
+			if(photoshoots.size() > 0) {
+				return photoshoots;
+			}
 		}
 		return null;
 	}
@@ -118,7 +128,9 @@ public class PhotoshootServiceImpl implements PhotoshootService {
 	public List<Photoshoot> findByLocationKeyword(String keyword) {
 		if (keyword != null) {
 			List<Photoshoot> photoshoots = repo.findByLocationContaining(keyword);
-			return photoshoots;
+			if(photoshoots.size() > 0) {
+				return photoshoots;
+			}
 		}
 		// TODO Auto-generated method stub
 		return null;
@@ -128,7 +140,9 @@ public class PhotoshootServiceImpl implements PhotoshootService {
 	public List<Photoshoot> findByCommentsKeyword(String keyword) {
 		if(keyword != null) {
 			List<Photoshoot> photoshoots = repo.findByCommentLocationContainingOrCommentPerformanceContaining(keyword, keyword);
-			return photoshoots;
+			if(photoshoots.size() > 0) {
+				return photoshoots;
+			}
 		}
 		return null;
 	}
