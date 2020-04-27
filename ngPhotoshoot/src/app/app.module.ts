@@ -10,6 +10,7 @@ import { PhotoshootListComponent } from './components/photoshoot-list/photoshoot
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { CreatePhotoshootComponent } from './components/create-photoshoot/create-photoshoot.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CreatePhotoshootComponent } from './components/create-photoshoot/create
     AppComponent,
     PhotoshootListComponent,
     NavigationComponent,
-    CreatePhotoshootComponent
+    CreatePhotoshootComponent,
+    SearchComponent
   ],
   imports: [
     FormsModule,
