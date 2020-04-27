@@ -1,0 +1,116 @@
+<form>
+  <table>
+    <tr>
+      <td><label for="name">Name of Photoshoot: </label></td>
+      <td>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="newPhotoshoot.name"
+          placeholder="Name"
+        />
+      </td>
+      <br />
+    </tr>
+    <tr>
+      <td><label for="location">Location: </label></td>
+      <td>
+        <input
+          type="text"
+          name="location"
+          [(ngModel)]="newPhotoshoot.location"
+          placeholder="Location"
+        />
+      </td>
+      <br />
+    </tr>
+    <tr>
+      <td><label for="date">Date: </label></td>
+      <td>
+        <input
+          type="date"
+          name="date"
+          [(ngModel)]="newPhotoshoot.date"
+          placeholder="Date"
+        />
+      </td>
+      <br />
+    </tr>
+    <tr>
+      <td><label for="latitude">Latitude: </label></td>
+      <td>
+        <input
+          type="number"
+          name="latitude"
+          [(ngModel)]="newPhotoshoot.latitude"
+          placeholder="Latitude"
+        />
+      </td>
+      <br />
+    </tr>
+    <tr>
+      <td><label for="longitude">Longitude: </label></td>
+      <td>
+        <input
+          type="number"
+          name="longitude"
+          [(ngModel)]="newPhotoshoot.longitude"
+          placeholder="Longitude"
+        />
+      </td>
+      <br />
+    </tr>
+    <tr>
+      <td><label for="shotsTaken">Shots Taken: </label></td>
+      <td>
+        <input
+          type="number"
+          name="shotsTaken"
+          [(ngModel)]="newPhotoshoot.shotsTaken"
+          placeholder="Shots Taken"
+        />
+      </td>
+      <br />
+    </tr>
+    <tr>
+      <td><label for="commentLocation">Comments About Location: </label></td>
+      <td>
+        <input
+          type="text"
+          name="commentLocation"
+          [(ngModel)]="newPhotoshoot.commentLocation"
+          placeholder="Comments About Location"
+        />
+      </td>
+      <br />
+    </tr>
+    <tr>
+      <td><label for="commentPerformance">Comment About Performance: </label></td>
+      <td>
+        <input
+          type="text"
+          name="commnetPerformance"
+          [(ngModel)]="newPhotoshoot.commentPerformance"
+          placeholder="Comment About Performance"
+        />
+      </td>
+      <br />
+    </tr>
+    <tr>
+      <td><label for="lensesUsed">Lenses Used: </label></td>
+      <td>
+        <input
+          type="text"
+          name="lensesUsed"
+          [(ngModel)]="newPhotoshoot.lensesUsed"
+          placeholder="Lenses Used"
+        />
+      </td>
+      <br />
+    </tr>
+
+    <tr>
+      <td><button (click)="create(newPhotoshoot)" class="btn btn-success">Log Photoshoot</button></td>
+    </tr>
+  </table>
+</form>

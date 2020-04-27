@@ -1,0 +1,235 @@
+<div class="container-fluid" *ngIf="!selected && !searchList && !editPS">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Lenses</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let photoshoot of photoshotList">
+      <td>{{ photoshoot.id }}</td>
+      <td (click)="displayById(photoshoot)">{{ photoshoot.name }}</td>
+      <td>{{ photoshoot.location }}</td>
+      <td>{{ photoshoot.lensesUsed }}</td>
+      <td><button (click)="setEditPhotoshoot(photoshoot)" class="btn btn-primary">Edit</button></td>
+      <td><button (click)="deleteId(photoshoot.id)" class="btn btn-warning">Delete</button></td>
+    </tr>
+  </table>
+</div>
+<div class="container-fluid" *ngIf="searchList">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Lenses</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let photoshoot of searchList">
+      <td>{{ photoshoot.id }}</td>
+      <td (click)="displayById(photoshoot)">{{ photoshoot.name }}</td>
+      <td>{{ photoshoot.location }}</td>
+      <td>{{ photoshoot.lensesUsed }}</td>
+      <td><button>Edit</button></td>
+      <td><button>Delete</button></td>
+    </tr>
+  </table>
+</div>
+<div class="container-fluid" *ngIf="selected">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Shots Taken</th>
+        <th>Lenses</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>{{ selected.id }}</td>
+      <td>{{ selected.date }}</td>
+      <td>{{ selected.name }}</td>
+      <td>{{ selected.location }}</td>
+      <td>{{ selected.shotsTaken }}</td>
+      <td>{{ selected.lensesUsed }}</td>
+      <td><button (click)="setEditPhotoshoot(selected)" class="btn btn-primary">Edit</button></td>
+      <td><button (click)="deleteId(selected.id)" class="btn btn-warning">Delete</button></td>
+    </tr>
+  </table>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Comments by Location:</h5>
+          <p class="card-text">{{ selected.commentLocation }}.</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Comments by Performance:</h5>
+          <p class="card-text">{{ selected.commentPerformance }}</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ selected.location }}:</h5>
+          <p class="card-text">
+            Latitude: {{ selected.latitude }}<br />Longitude:
+            {{ selected.longitude }}
+          </p>
+
+          <a
+            *ngIf="locationUrl"
+            class="btn btn-info"
+            href="{{ locationUrl }}"
+            target="_blank"
+            >Show on Map</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="editPS">
+  <form>
+    <table>
+      <tr>
+        <td><label for="name">Name of Photoshoot: </label></td>
+        <td>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="editPS.name"
+            value="{{ editPS.name }}"
+          />
+        </td>
+        <br />
+      </tr>
+      <tr>
+        <td><label for="location">Location: </label></td>
+        <td>
+          <input
+            type="text"
+            name="location"
+            [(ngModel)]="editPS.location"
+            value="{{ editPS.location }}"
+          />
+        </td>
+        <br />
+      </tr>
+      <tr>
+        <td><label for="date">Date: </label></td>
+        <td>
+          <input
+            type="date"
+            name="date"
+            [(ngModel)]="editPS.date"
+            value="{{ editPS.date }}"
+          />
+        </td>
+        <br />
+      </tr>
+      <tr>
+        <td><label for="latitude">Latitude: </label></td>
+        <td>
+          <input
+            type="number"
+            name="latitude"
+            [(ngModel)]="editPS.latitude"
+            value="{{ editPS.latitude }}"
+          />
+        </td>
+        <br />
+      </tr>
+      <tr>
+        <td><label for="longitude">Longitude: </label></td>
+        <td>
+          <input
+            type="number"
+            name="longitude"
+            [(ngModel)]="editPS.longitude"
+            value="{{ editPS.longitude }}"
+          />
+        </td>
+        <br />
+      </tr>
+      <tr>
+        <td><label for="shotsTaken">Shots Taken: </label></td>
+        <td>
+          <input
+            type="number"
+            name="shotsTaken"
+            [(ngModel)]="editPS.shotsTaken"
+            value="{{ editPS.shotsTaken }}"
+          />
+        </td>
+        <br />
+      </tr>
+      <tr>
+        <td>
+          <label for="commentLocation">Comments About Location: </label>
+        </td>
+        <td>
+          <input
+            type="text"
+            name="commentLocation"
+            [(ngModel)]="editPS.commentLocation"
+            value="{{ editPS.commentLocation }}"
+          />
+        </td>
+        <br />
+      </tr>
+      <tr>
+        <td>
+          <label for="commentPerformance">Comment About Performance: </label>
+        </td>
+        <td>
+          <input
+            type="text"
+            name="commnetPerformance"
+            [(ngModel)]="editPS.commentPerformance"
+            value="{{ editPS.commentPerformance }}"
+          />
+        </td>
+        <br />
+      </tr>
+      <tr>
+        <td><label for="lensesUsed">Lenses Used: </label></td>
+        <td>
+          <input
+            type="text"
+            name="lensesUsed"
+            [(ngModel)]="editPS.lensesUsed"
+            value="{{ editPS.lensesUsed }}"
+          />
+        </td>
+        <br />
+      </tr>
+
+      <tr>
+        <td>
+          <button (click)="updatePhotoshoot(editPS)" class="btn btn-success">
+            Log Updated Photoshoot
+          </button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
